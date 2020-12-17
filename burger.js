@@ -1,10 +1,8 @@
 $(document).ready(function() {
 
-    // Add Burger to Database Button
     $("#addBurger").on("click", function(){
       console.log("Add Burger Button Clicked");
   
-      // Create an Object to be Sent to the Backend
       let burger = {
         "burger_name": $(burgerName).val(),
         "devoured": $(burgerName).data("eaten")
@@ -12,13 +10,11 @@ $(document).ready(function() {
   
       $.post("/api/burger", burger).done((response)=>{
         console.log("Created a New Burger!");
-        // Reload the page to get the updated list
         location.reload();
       });
   
-    }); // End of Create New Burger
+    }); 
   
-    // Update Burger from Database Button
   
     $(".burgerBlock").on("click", function(){
       console.log("Button Clicked");
@@ -40,6 +36,6 @@ $(document).ready(function() {
         location.reload();
       });
   
-    }); // End of Devour it Button
+    }); 
   
   });

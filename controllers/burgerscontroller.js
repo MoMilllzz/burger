@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
 
 router.post("/api/burger", function(req, res) {
   console.log("burger Route Hit");
-  burger.insertOne(["burger_name","devoured"], [req.body["burger_name"], req.body.devoured], (result)=>{
+  burger.create(["burger_name","devoured"], [req.body["burger_name"], req.body.devoured], (result)=>{
     console.log(result);
     res.json(result);
   });
@@ -32,7 +32,7 @@ router.put("/api/burger/:id", function(req, res) {
   console.log("burger Route Hit. ID is "+ burgerID);
   console.log("Dev is " + req.body.devoured);
 
-  burger.updateOne(["devoured"], [req.body.devoured], condition, (result)=>{
+  burger.update(["devoured"], [req.body.devoured], condition, (result)=>{
     console.log("Executing First Declared CallBack");
     res.json(result);
   });
